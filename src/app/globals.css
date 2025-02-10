@@ -6,11 +6,12 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 .gradient {
-  /* background: linear-gradient(90deg, #0f172a 0%, #1c2c5066 70%); */
-  background: #0f172a;
+  background: linear-gradient(90deg, #0f172a 0%, #1c2c5066 70%);
 }
 
-#navList {
+#navList,
+#banner,
+#skills {
   background-color: #0f172a;
   background-image: linear-gradient(
       90deg,
@@ -36,4 +37,15 @@ body {
     );
   background-size: 30px 30px;
   animation: square-move 10s infinite linear;
+}
+
+.zoom-effect {
+  color: #fff;
+  text-align: center;
+  line-height: 200px;
+  transition: transform 0.5s ease;
+}
+
+.zoom-effect:hover {
+  transform: scale(1.2);
 }
