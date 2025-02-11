@@ -33,9 +33,7 @@ const ScrollTop = () => {
     <div className="hidden md:block">
       <button
         className={`scroll-to-top ${
-          isVisible
-            ? "show  p-4 gradient animate__heartBeat rounded-2xl text-secondaryColor"
-            : ""
+          isVisible ? "show  p-4 gradient  rounded-2xl text-secondaryColor" : ""
         }`}
         onClick={scrollToTop}>
         <FaArrowUp />

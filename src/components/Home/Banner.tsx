@@ -2,6 +2,7 @@
 import { Button } from "../ui/button";
 import profileImg from "../../assets/file.png";
 import Image from "next/image";
+import Link from "next/link";
 
 const Banner = () => {
   return (
@@ -21,7 +22,7 @@ const Banner = () => {
             Passionate about creating interactive and responsive web
             applications using modern technologies.
           </p>
-          <a
+          <Link
             href="https://drive.google.com/file/d/16XFWksNFUI35tRcdil6Bh4RroFSRdLvZ/view?usp=sharing"
             target="_blank">
             <Button
@@ -29,7 +30,7 @@ const Banner = () => {
               className="hover:bg-secondaryColor rounded-xl  hover:text-white hover:border-secondaryColor font-bold text-secondaryColor">
               Get Resume
             </Button>
-          </a>
+          </Link>
         </div>
 
         <div className="flex-1 lg:pl-96 py-4 md:py-12">
