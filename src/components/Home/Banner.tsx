@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const Banner = () => {
   return (
-    <div className="max-w-7xl mx-auto py-24">
+    <div className="max-w-7xl mx-auto py-20">
       <div className="flex items-center lg:max-w-7xl mx-auto lg:px-2 flex-col-reverse lg:justify-between lg:flex-row">
         <div className="flex-1 space-y-3 lg:space-y-4 px-4 md:px-0 ml-0 md:ml-8 lg:ml-0">
           <h1 className="text-base md:text-2xl text-white font-bold ">

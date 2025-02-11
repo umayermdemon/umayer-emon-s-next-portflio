@@ -63,7 +63,7 @@ const NavBar = () => {
   }, [openNav]);
   return (
     <nav className="fixed z-50 px-4 pt-2 mt-2 md:pt-2 pb-2 w-screen mx-auto shadow-none rounded-none">
-      <div className="container mx-auto flex justify-between items-center py-4 px-6 ">
+      <div className="max-w-7xl mx-auto flex justify-between items-center py-4">
         {/* Logo */}
         <div className="text-2xl font-bold text-blue-600">
           <Image src={logo} alt="Umayer's Image" width={45} />

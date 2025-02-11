@@ -36,7 +36,6 @@ const skills = [
   { name: "Redux Toolkit", image: reduxToolkit },
 ];
 const Skills = () => {
-  console.log([skills]);
   return (
     <div className="py-20 lg:pt-24 lg:pb-36 relative" id="skills">
       <div className="flex justify-center">

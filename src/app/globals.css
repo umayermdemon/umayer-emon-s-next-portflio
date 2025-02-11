@@ -11,7 +11,8 @@ body {
 
 #navList,
 #banner,
-#skills {
+#skills,
+#header {
   background-color: #0f172a;
   background-image: linear-gradient(
       90deg,
