@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 const AboutMe = () => {
   return (
-    <div className="bg-backgroundColor">
+    <div className="bg-backgroundColor" id="about">
       <div
         className="flex justify-center lg:max-w-7xl mx-auto py-12 md:py-24"
         id="about">

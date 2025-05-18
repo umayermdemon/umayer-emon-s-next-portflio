@@ -1,4 +1,3 @@
-// import { FaArrowRight } from "react-icons/fa6";
 import { Button } from "../ui/button";
 import Image from "next/image";
 import Link from "next/link";
@@ -18,29 +17,29 @@ export const projectData = [
     description: "Mobile repair services with appointment booking.",
     liveLinks: "https://electro-care-fd46f.web.app",
     imageLink:
-      "https://res.cloudinary.com/duagqnvpw/image/upload/v1739242626/Al-Asma-Ul-Husna_anzrla.jpg",
+      "https://res.cloudinary.com/duagqnvpw/image/upload/v1739366878/Screenshot_2025-02-12_192645_vers8v.png",
   },
   {
     id: "3",
-    title: "Artistry Avenue",
-    description: "Artistry Avenue: Creativity and Craft Meet Here",
-    liveLinks: "https://artistry-avenue-b9a0.web.app",
-    imageLink:
-      "https://res.cloudinary.com/duagqnvpw/image/upload/v1739242626/Al-Asma-Ul-Husna_anzrla.jpg",
-  },
-  {
-    id: "4",
     title: "Swift Parcel",
     description: "Swift Parcel simplifies parcel management efficiently.",
     liveLinks: "https://swift-parcel-7b99a.web.app",
     imageLink:
-      "https://res.cloudinary.com/duagqnvpw/image/upload/v1739242626/Al-Asma-Ul-Husna_anzrla.jpg",
+      "https://res.cloudinary.com/duagqnvpw/image/upload/v1739367353/Screenshot_2025-02-12_193541_czwamn.png",
+  },
+  {
+    id: "4",
+    title: "Artistry Avenue",
+    description: "Artistry Avenue: Creativity and Craft Meet Here",
+    liveLinks: "https://artistry-avenue-b9a0.web.app",
+    imageLink:
+      "https://res.cloudinary.com/duagqnvpw/image/upload/v1739367141/Screenshot_2025-02-12_193206_ognltn.png",
   },
 ];
 
 const FeaturedProjects = () => {
   return (
-    <div className="py-12 bg-backgroundColor">
+    <div className="py-12 bg-backgroundColor" id="projects">
       <div className="flex justify-center ">
         <h1 className="text-2xl lg:text-3xl text-white gradient px-8 rounded-sm py-2 font-semibold">
           Featured Projects
@@ -70,13 +69,6 @@ const FeaturedProjects = () => {
                   {project.description}
                 </p>
               </div>
-              {/* <div>
-              <a href={project.liveLinks} target="_blank">
-                <button className="text-sm flex items-center gap-1 p-1 links text-secondaryColor">
-                  <span>Go To Site</span> <FaArrowRight />
-                </button>
-              </a>
-            </div> */}
             </div>
           </Link>
         ))}

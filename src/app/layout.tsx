@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Umayer Emon",
-  description: " Personal Portfolio & Blog Website of Umayer Emon",
+  title: "Emon Miah",
+  description: " Personal Portfolio & Blog Website of Emon Miah",
 };
 
 export default function RootLayout({

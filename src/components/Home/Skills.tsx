@@ -1,17 +1,4 @@
 import Marquee from "react-fast-marquee";
-import html from "@/assets/Skills Logo/html.png";
-import css from "@/assets/Skills Logo/css.png";
-import JavaScript from "@/assets/Skills Logo/JavaScript.png";
-import react from "@/assets/Skills Logo/react.png";
-import tailwind from "@/assets/Skills Logo/tailwind.png";
-import Bootstrap from "@/assets/Skills Logo/Bootstrap.png";
-import git from "@/assets/Skills Logo/git.png";
-import firebase from "@/assets/Skills Logo/firebase.png";
-import axios from "@/assets/Skills Logo/axios.png";
-import node from "@/assets/Skills Logo/node.png";
-import mongodb from "@/assets/Skills Logo/mongodb.png";
-import mongoose from "@/assets/Skills Logo/mongoose.png";
-import reduxToolkit from "@/assets/Skills Logo/redux.svg";
 import Image from "next/image";
 import {
   Tooltip,
@@ -21,19 +8,71 @@ import {
 } from "../ui/tooltip";
 
 const skills = [
-  { name: "HTML", image: html },
-  { name: "CSS", image: css },
-  { name: "JavaScript", image: JavaScript },
-  { name: "React", image: react },
-  { name: "Tailwind", image: tailwind },
-  { name: "Bootstrap", image: Bootstrap },
-  { name: "Git", image: git },
-  { name: "Firebase", image: firebase },
-  { name: "Axios", image: axios },
-  { name: "Node.js", image: node },
-  { name: "MongoDB", image: mongodb },
-  { name: "Mongoose", image: mongoose },
-  { name: "Redux Toolkit", image: reduxToolkit },
+  {
+    name: "HTML",
+    image:
+      "https://res.cloudinary.com/duagqnvpw/image/upload/v1739375117/html_fva0ic.png",
+  },
+  {
+    name: "CSS",
+    image:
+      "https://res.cloudinary.com/duagqnvpw/image/upload/v1739375114/css_dsldfl.png",
+  },
+  {
+    name: "JavaScript",
+    image:
+      "https://res.cloudinary.com/duagqnvpw/image/upload/v1739375118/JavaScript_dcf8ge.png",
+  },
+  {
+    name: "React",
+    image:
+      "https://res.cloudinary.com/duagqnvpw/image/upload/v1739375121/react_iuy8by.png",
+  },
+  {
+    name: "Tailwind",
+    image:
+      "https://res.cloudinary.com/duagqnvpw/image/upload/v1739375122/tailwind_nbuvzc.png",
+  },
+  {
+    name: "Bootstrap",
+    image:
+      "https://res.cloudinary.com/duagqnvpw/image/upload/v1739375114/Bootstrap_mik2vd.png",
+  },
+  {
+    name: "Git",
+    image:
+      "https://res.cloudinary.com/duagqnvpw/image/upload/v1739375116/git_dqqecn.png",
+  },
+  {
+    name: "Firebase",
+    image:
+      "https://res.cloudinary.com/duagqnvpw/image/upload/v1739375115/firebase_ylp16z.png",
+  },
+  {
+    name: "Axios",
+    image:
+      "https://res.cloudinary.com/duagqnvpw/image/upload/v1739375113/axios_tujukf.png",
+  },
+  {
+    name: "Node.js",
+    image:
+      "https://res.cloudinary.com/duagqnvpw/image/upload/v1739375120/node_matxt8.png",
+  },
+  {
+    name: "MongoDB",
+    image:
+      "https://res.cloudinary.com/duagqnvpw/image/upload/v1739375119/mongodb_segh7u.png",
+  },
+  {
+    name: "Mongoose",
+    image:
+      "https://res.cloudinary.com/duagqnvpw/image/upload/v1739375120/mongoose_dnnak0.png",
+  },
+  {
+    name: "Redux Toolkit",
+    image:
+      "https://res.cloudinary.com/duagqnvpw/image/upload/v1739375122/redux_au6kpo.svg",
+  },
 ];
 const Skills = () => {
   return (
@@ -52,6 +91,8 @@ const Skills = () => {
               <div className="duration-500 group-hover:scale-110 cursor-pointer flex flex-col items-center gap-4">
                 <Image
                   src={skill.image}
+                  width={400}
+                  height={400}
                   className="w-12 h-12 md:w-16 md:h-16"
                   alt="Skill Icon"
                 />
@@ -71,6 +112,8 @@ const Skills = () => {
                 <Image
                   src={skill?.image}
                   alt={skill?.name}
+                  width={400}
+                  height={400}
                   className="w-8 h-8 md:w-12 md:h-12 shadow-lg duration-500 hover:scale-150 cursor-pointer border border-secondaryColor p-1 md:p-2 rounded-xl"
                 />
               </TooltipTrigger>

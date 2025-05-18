@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
-import logo from "@/assets/logo.png";
+import React, { useEffect, useRef, useState } from "react";
+import logo from "@/assets/UE.png";
 
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -16,20 +16,25 @@ const navList = [
     label: "Home",
   },
   {
-    path: "/projects",
+    path: "#about",
+    label: "About Me",
+  },
+  {
+    path: "#skills",
+    label: "Skills",
+  },
+  {
+    path: "#projects",
     label: "Projects",
   },
   {
     path: "/blog",
     label: "Blogs",
   },
-  {
-    path: "/contact",
-    label: "Contact",
-  },
 ];
 
 const NavBar = () => {
+  const [activeLink, setActiveLink] = useState("#home");
   const pathName = usePathname();
   const [openNav, setOpenNav] = React.useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -47,7 +52,7 @@ const NavBar = () => {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        setOpenNav(false); // Close the menu if clicked outside
+        setOpenNav(false);
       }
     };
 
@@ -62,27 +67,42 @@ const NavBar = () => {
     };
   }, [openNav]);
   return (
-    <nav className="fixed z-50 px-4 pt-2 mt-2 md:pt-2 pb-2 w-screen mx-auto shadow-none rounded-none">
+    <nav className="fixed z-50 px-4 pt-2 md:pt-0 pb-2 w-screen mx-auto shadow-none rounded-none ">
       <div className="max-w-7xl mx-auto flex justify-between items-center py-4">
         {/* Logo */}
-        <div className="text-2xl font-bold text-blue-600">
-          <Image src={logo} alt="Umayer's Image" width={45} />
-        </div>
+        <Link href="/">
+          <div className="text-2xl font-bold text-blue-600">
+            <Image src={logo} alt="Umayer's Image" width={45} />
+          </div>
+        </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex space-x-4 flex-1 items-center justify-end  text-white">
+        <div className="hidden md:flex space-x-4  items-center flex-1 justify-center text-white navLink">
           {navList.map((item) => (
             <Link
               href={item?.path}
               key={item?.path}
-              className={
-                pathName === item?.path
-                  ? "bg-[#00BFFF] text-[#06002C] border-b border-secondaryColor border-opacity-40 px-4 py-2 rounded-xl text-base"
-                  : "hover:text-[#00BFFF] text-white border-b border-secondaryColor border-opacity-40 px-4 py-2 text-base rounded-xl"
-              }>
+              onClick={() => setActiveLink(item.path)}
+              className={`flex items-center text-base font-medium transition-colors
+                 ${
+                   activeLink === item?.path
+                     ? "bg-[#00BFFF] text-[#06002C] border-b border-secondaryColor border-opacity-40 px-4 py-2 rounded-xl text-base"
+                     : "hover:text-[#00BFFF] text-white border-b border-secondaryColor border-opacity-40 px-4 py-2 text-base rounded-xl"
+                 }`}>
               {item.label}
             </Link>
           ))}
+        </div>
+        <div>
+          <Link
+            href={"#contact"}
+            className={
+              pathName === "/contact"
+                ? "bg-[#00BFFF] text-[#06002C] border-b border-secondaryColor border-opacity-40 px-4 py-2 rounded-xl text-base"
+                : "hover:text-[#00BFFF] text-white border-b border-secondaryColor border-opacity-40 px-4 py-2 text-base rounded-xl"
+            }>
+            Contact Me
+          </Link>
         </div>
 
         {/* Mobile Menu */}
@@ -106,8 +126,9 @@ const NavBar = () => {
               <Link
                 href={item?.path}
                 key={item?.path}
+                onClick={() => setActiveLink(item.path)}
                 className={
-                  pathName === item?.path
+                  activeLink === item?.path
                     ? "bg-[#00BFFF] text-[#06002C] border-b border-secondaryColor border-opacity-40 px-4 py-2 rounded-xl text-base"
                     : "hover:text-[#00BFFF] text-white border-b border-secondaryColor border-opacity-40 px-4 py-2 text-base rounded-xl"
                 }>

@@ -13,7 +13,7 @@ const Banner = () => {
             Hi, I'm{" "}
           </h1>
           <h1 className="text-3xl md:text-5xl  text-white font-bold ">
-            Umayer Emon
+            Emon Miah
           </h1>
           <h2 className="text-secondaryColor text-sm md:text-base ">
             Junior Web Developer
@@ -40,7 +40,6 @@ const Banner = () => {
             height={400}
             alt="profileImg"
             className="max-w-xs lg:max-w-md  zoom-effect cursor-pointer rounded-full shadow-sm bg-[#1c2c5066]"
-            //  className="max-w-xs relative lg:max-w-7xl zoom-effect cursor-pointer rounded-full shadow-sm"
           />
         </div>
       </div>
