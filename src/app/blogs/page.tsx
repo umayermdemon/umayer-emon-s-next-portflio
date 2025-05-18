@@ -4,7 +4,7 @@ import { blogs } from "./blogs";
 
 const BlogPage = async () => {
   return (
-    <div className="bg-backgroundColor" id="projects">
+    <div className="bg-backgroundColor" id="blogs">
       <div className="flex justify-center ">
         <h1 className="text-2xl lg:text-3xl text-white gradient px-8 rounded-sm py-2 font-semibold">
           Blogs
@@ -12,7 +12,7 @@ const BlogPage = async () => {
       </div>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-2 lg:mx-auto py-12">
         {blogs.map((blog, index) => (
-          <Link key={index} href={`/blog/${blog?.id}`}>
+          <Link key={index} href={`/blogs/${blog?.id}`}>
             <div
               className="bg-[#1e293b] rounded-xl flex flex-col px-4 pb-2 pt-4 h-[440px] cursor-pointer"
               key={index}>

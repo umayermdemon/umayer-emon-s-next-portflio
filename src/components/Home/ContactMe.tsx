@@ -56,82 +56,86 @@ const ContactPage = () => {
     e.target.reset();
   };
   return (
-    <div className="max-w-7xl mx-auto py-10" id="contact">
-      {/* Title */}
-      <div className="flex justify-center">
-        <h1 className="text-2xl lg:text-3xl text-white gradient px-8 rounded-sm py-2 font-semibold">
-          Contact
-        </h1>
-      </div>
-
-      {/* Content Section */}
-      <div className="flex flex-col justify-center pt-6 md:pt-16 items-center lg:flex-row-reverse lg:gap-52">
-        {/* Contact Information */}
-        <div className="flex-1">
-          <Image src={contactLogo} className="w-72" alt="Contact" />
-          <div className="space-y-6 pt-8">
-            <h3 className="flex flex-row gap-2 items-center text-sm md:text-xl text-white">
-              <MdOutlineAlternateEmail className="bg-secondaryColor bg-opacity-40 text-white p-1 text-sm md:text-xl rounded-full" />
-              mamudmdemon@gmail.com
-            </h3>
-            <h3 className="flex flex-row gap-2 items-center text-sm md:text-xl text-white">
-              <FaPhone className="bg-secondaryColor bg-opacity-40 text-white p-1 text-sm md:text-xl rounded-full" />
-              01636-279878
-            </h3>
-            <h3 className="flex flex-row gap-2 items-center text-sm md:text-xl text-white">
-              <FaLocationDot className="bg-secondaryColor bg-opacity-40 text-white p-1 text-sm md:text-xl rounded-full" />
-              Narsingdi, Dhaka, Bangladesh
-            </h3>
-          </div>
-          <div className="flex gap-8 text-white mt-6 ml-24">
-            {socialIcon.map((item, idx) => (
-              <a
-                key={idx}
-                href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-2xl hover:text-secondaryColor opacity-80 transition-opacity hover:opacity-100">
-                {item.icon}
-              </a>
-            ))}
-          </div>
+    <div className="bg-backgroundColor" id="contact">
+      <div className="max-w-7xl mx-auto py-10">
+        {/* Title */}
+        <div className="flex justify-center">
+          <h1 className="text-2xl lg:text-3xl text-white gradient px-8 rounded-sm py-2 font-semibold">
+            Contact
+          </h1>
         </div>
 
-        {/* Contact Form */}
-        <div className="bg-[#1e293b] p-8 rounded-xl flex-1 mt-12 lg:mt-0">
-          <form onSubmit={handleMessage} className="w-[19rem] md:w-[34.375rem]">
-            {formFields.map((field) => (
-              <div key={field.id} className="flex flex-col gap-2 pt-4">
-                <label className="text-sm md:text-xl font-semibold text-white">
-                  {field.label}
-                </label>
-                {field.type === "textarea" ? (
-                  <textarea
-                    name={field.name}
-                    placeholder={field.placeholder}
-                    required
-                    className="bg-[#313f55] rounded-xl text-xs md:text-sm text-white pl-2 pt-2 h-40 input-focus"
-                  />
-                ) : (
-                  <input
-                    type={field.type}
-                    name={field.name}
-                    placeholder={field.placeholder}
-                    required
-                    className="bg-[#313f55] rounded-xl text-xs md:text-sm h-10 text-white pl-4 input-focus"
-                  />
-                )}
-              </div>
-            ))}
-            <div className="pt-4 flex justify-center">
-              <Button
-                type="submit"
-                variant={"outline"}
-                className="hover:bg-secondaryColor rounded-xl  hover:text-white hover:border-secondaryColor font-bold text-secondaryColor">
-                Send Message
-              </Button>
+        {/* Content Section */}
+        <div className="flex flex-col justify-center pt-6 md:pt-16 items-center lg:flex-row-reverse lg:gap-52">
+          {/* Contact Information */}
+          <div className="flex-1">
+            <Image src={contactLogo} className="w-72" alt="Contact" />
+            <div className="space-y-6 pt-8">
+              <h3 className="flex flex-row gap-2 items-center text-sm md:text-xl text-white">
+                <MdOutlineAlternateEmail className="bg-secondaryColor bg-opacity-40 text-white p-1 text-sm md:text-xl rounded-full" />
+                mamudmdemon@gmail.com
+              </h3>
+              <h3 className="flex flex-row gap-2 items-center text-sm md:text-xl text-white">
+                <FaPhone className="bg-secondaryColor bg-opacity-40 text-white p-1 text-sm md:text-xl rounded-full" />
+                01636-279878
+              </h3>
+              <h3 className="flex flex-row gap-2 items-center text-sm md:text-xl text-white">
+                <FaLocationDot className="bg-secondaryColor bg-opacity-40 text-white p-1 text-sm md:text-xl rounded-full" />
+                Narsingdi, Dhaka, Bangladesh
+              </h3>
             </div>
-          </form>
+            <div className="flex gap-8 text-white mt-6 ml-24">
+              {socialIcon.map((item, idx) => (
+                <a
+                  key={idx}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-2xl hover:text-secondaryColor opacity-80 transition-opacity hover:opacity-100">
+                  {item.icon}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Contact Form */}
+          <div className="bg-[#1e293b] p-8 rounded-xl flex-1 mt-12 lg:mt-0">
+            <form
+              onSubmit={handleMessage}
+              className="w-[19rem] md:w-[34.375rem]">
+              {formFields.map((field) => (
+                <div key={field.id} className="flex flex-col gap-2 pt-4">
+                  <label className="text-sm md:text-xl font-semibold text-white">
+                    {field.label}
+                  </label>
+                  {field.type === "textarea" ? (
+                    <textarea
+                      name={field.name}
+                      placeholder={field.placeholder}
+                      required
+                      className="bg-[#313f55] rounded-xl text-xs md:text-sm text-white pl-2 pt-2 h-40 input-focus"
+                    />
+                  ) : (
+                    <input
+                      type={field.type}
+                      name={field.name}
+                      placeholder={field.placeholder}
+                      required
+                      className="bg-[#313f55] rounded-xl text-xs md:text-sm h-10 text-white pl-4 input-focus"
+                    />
+                  )}
+                </div>
+              ))}
+              <div className="pt-4 flex justify-center">
+                <Button
+                  type="submit"
+                  variant={"outline"}
+                  className="hover:bg-secondaryColor rounded-xl  hover:text-white hover:border-secondaryColor font-bold text-secondaryColor">
+                  Send Message
+                </Button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>

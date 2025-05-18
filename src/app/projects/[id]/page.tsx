@@ -8,6 +8,7 @@ import {
 import { projectData } from "@/components/Home/FeaturedProjects";
 import { FaArrowRight } from "react-icons/fa6";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
 const ProjectDetailsPage = async ({
   params,
@@ -15,8 +16,12 @@ const ProjectDetailsPage = async ({
   params: Promise<{ id: string }>;
 }) => {
   const { id } = await params;
-  const project = projectData.filter((project) => project.id === id);
-  const { description, liveLinks, title } = project[0];
+  const project = projectData.find((project) => project.id === id);
+  if (!project) {
+    notFound();
+  }
+  console.log(project);
+  const { description, liveLinks, title } = project;
   return (
     <Card className="bg-backgroundColor text-white border border-secondaryColor rounded-xl max-w-7xl mx-auto">
       <CardHeader>

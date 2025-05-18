@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import { blogs } from "../blogs";
 import Image from "next/image";
 
@@ -7,8 +8,11 @@ const BlogDetailsPage = async ({
   params: Promise<{ id: string }>;
 }) => {
   const { id } = await params;
-  const blog = blogs.filter((blog) => blog?.id === Number(id));
-  const { description, image, title, author, date } = blog[0];
+  const blog = blogs.find((blog) => blog?.id === Number(id));
+  if (!blog) {
+    notFound();
+  }
+  const { description, image, title, author, date } = blog;
   return (
     <div className="bg-backgroundColor text-white border border-secondaryColor rounded-xl max-w-7xl mx-auto">
       <div>

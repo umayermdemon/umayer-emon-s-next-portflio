@@ -39,7 +39,7 @@ export const projectData = [
 
 const FeaturedProjects = () => {
   return (
-    <div className="py-12 bg-backgroundColor" id="projects">
+    <div className="pt-24 pb-32 bg-backgroundColor" id="projects">
       <div className="flex justify-center ">
         <h1 className="text-2xl lg:text-3xl text-white gradient px-8 rounded-sm py-2 font-semibold">
           Featured Projects
