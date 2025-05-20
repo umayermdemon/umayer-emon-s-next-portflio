@@ -41,7 +41,7 @@ const FeaturedProjects = () => {
   return (
     <div className="pt-24 pb-32 bg-backgroundColor" id="projects">
       <div className="flex justify-center ">
-        <h1 className="text-2xl lg:text-3xl text-white gradient px-8 rounded-sm py-2 font-semibold">
+        <h1 className="text-2xl lg:text-3xl text-gray-200 gradient px-8 rounded-sm py-2 font-semibold">
           Featured Projects
         </h1>
       </div>
@@ -77,7 +77,7 @@ const FeaturedProjects = () => {
         <Link href="/projects">
           <Button
             variant={"outline"}
-            className="hover:bg-secondaryColor rounded-xl  hover:text-white hover:border-secondaryColor font-bold text-secondaryColor">
+            className="hover:bg-secondaryColor rounded-xl  hover:text-black hover:border-secondaryColor font-semibold text-secondaryColor">
             View All Projects
           </Button>
         </Link>

@@ -78,7 +78,7 @@ const Skills = () => {
   return (
     <div className="py-20 lg:pt-24 lg:pb-36 relative" id="skills">
       <div className="flex justify-center">
-        <h1 className="text-2xl lg:text-3xl text-white gradient px-8 rounded-sm py-2 font-semibold">
+        <h1 className="text-2xl lg:text-3xl text-gray-200 gradient px-8 rounded-sm py-2 font-semibold">
           Skills
         </h1>
       </div>
@@ -96,7 +96,7 @@ const Skills = () => {
                   className="w-12 h-12 md:w-16 md:h-16"
                   alt="Skill Icon"
                 />
-                <h2 className="text-white font-semibold text-sm md:text-lg uppercase">
+                <h2 className="text-gray-200 font-semibold text-sm md:text-lg uppercase">
                   {skill.name}
                 </h2>
               </div>

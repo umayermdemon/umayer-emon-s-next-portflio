@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Emon Miah",
-  description: " Personal Portfolio & Blog Website of Emon Miah",
+  title: "Umayer Emon",
+  description: " Personal Portfolio & Blog Website of Umayer Emon",
 };
 
 export default function RootLayout({
@@ -27,7 +27,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         id="header"
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-backgroundColor text-white`}>
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-backgroundColor`}>
         <LayoutWrapper>{children}</LayoutWrapper>
       </body>
     </html>

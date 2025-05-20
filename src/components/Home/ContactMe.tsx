@@ -60,7 +60,7 @@ const ContactPage = () => {
       <div className="max-w-7xl mx-auto py-10">
         {/* Title */}
         <div className="flex justify-center">
-          <h1 className="text-2xl lg:text-3xl text-white gradient px-8 rounded-sm py-2 font-semibold">
+          <h1 className="text-2xl lg:text-3xl text-gray-200 gradient px-8 rounded-sm py-2 font-semibold">
             Contact
           </h1>
         </div>
@@ -71,20 +71,20 @@ const ContactPage = () => {
           <div className="flex-1">
             <Image src={contactLogo} className="w-72" alt="Contact" />
             <div className="space-y-6 pt-8">
-              <h3 className="flex flex-row gap-2 items-center text-sm md:text-xl text-white">
-                <MdOutlineAlternateEmail className="bg-secondaryColor bg-opacity-40 text-white p-1 text-sm md:text-xl rounded-full" />
+              <h3 className="flex flex-row gap-2 items-center text-sm md:text-xl text-gray-200">
+                <MdOutlineAlternateEmail className="bg-secondaryColor bg-opacity-40 text-gray-200 p-1 text-sm md:text-xl rounded-full" />
                 mamudmdemon@gmail.com
               </h3>
-              <h3 className="flex flex-row gap-2 items-center text-sm md:text-xl text-white">
-                <FaPhone className="bg-secondaryColor bg-opacity-40 text-white p-1 text-sm md:text-xl rounded-full" />
+              <h3 className="flex flex-row gap-2 items-center text-sm md:text-xl text-gray-200">
+                <FaPhone className="bg-secondaryColor bg-opacity-40 text-gray-200 p-1 text-sm md:text-xl rounded-full" />
                 01636-279878
               </h3>
-              <h3 className="flex flex-row gap-2 items-center text-sm md:text-xl text-white">
-                <FaLocationDot className="bg-secondaryColor bg-opacity-40 text-white p-1 text-sm md:text-xl rounded-full" />
+              <h3 className="flex flex-row gap-2 items-center text-sm md:text-xl text-gray-200">
+                <FaLocationDot className="bg-secondaryColor bg-opacity-40 text-gray-200 p-1 text-sm md:text-xl rounded-full" />
                 Narsingdi, Dhaka, Bangladesh
               </h3>
             </div>
-            <div className="flex gap-8 text-white mt-6 ml-24">
+            <div className="flex gap-8 text-gray-200 mt-6 ml-24">
               {socialIcon.map((item, idx) => (
                 <a
                   key={idx}
@@ -105,7 +105,7 @@ const ContactPage = () => {
               className="w-[19rem] md:w-[34.375rem]">
               {formFields.map((field) => (
                 <div key={field.id} className="flex flex-col gap-2 pt-4">
-                  <label className="text-sm md:text-xl font-semibold text-white">
+                  <label className="text-sm md:text-xl font-semibold text-gray-200">
                     {field.label}
                   </label>
                   {field.type === "textarea" ? (
@@ -113,7 +113,7 @@ const ContactPage = () => {
                       name={field.name}
                       placeholder={field.placeholder}
                       required
-                      className="bg-[#313f55] rounded-xl text-xs md:text-sm text-white pl-2 pt-2 h-40 input-focus"
+                      className="bg-[#313f55] rounded-xl text-xs md:text-sm text-gray-200 pl-2 pt-2 h-40 input-focus"
                     />
                   ) : (
                     <input
@@ -121,7 +121,7 @@ const ContactPage = () => {
                       name={field.name}
                       placeholder={field.placeholder}
                       required
-                      className="bg-[#313f55] rounded-xl text-xs md:text-sm h-10 text-white pl-4 input-focus"
+                      className="bg-[#313f55] rounded-xl text-xs md:text-sm h-10 text-gray-200 pl-4 input-focus"
                     />
                   )}
                 </div>
@@ -130,7 +130,7 @@ const ContactPage = () => {
                 <Button
                   type="submit"
                   variant={"outline"}
-                  className="hover:bg-secondaryColor rounded-xl  hover:text-white hover:border-secondaryColor font-bold text-secondaryColor">
+                  className="hover:bg-secondaryColor rounded-xl  hover:text-gray-200 hover:border-secondaryColor font-bold text-secondaryColor">
                   Send Message
                 </Button>
               </div>

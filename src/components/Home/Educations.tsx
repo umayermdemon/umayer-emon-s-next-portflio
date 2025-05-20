@@ -32,7 +32,7 @@ const Educations = () => (
   <section id="education">
     <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
       <div className="flex justify-center">
-        <h1 className="text-2xl lg:text-3xl text-white gradient px-8 rounded-sm py-2 font-semibold">
+        <h1 className="text-2xl lg:text-3xl text-gray-200 gradient px-8 rounded-sm py-2 font-semibold">
           Educations
         </h1>
       </div>
@@ -56,14 +56,14 @@ const Educations = () => (
                       className="w-full h-full object-cover"
                     />
                     <Avatar.Fallback
-                      className="w-full h-full flex items-center justify-center bg-gray-600 text-white"
+                      className="w-full h-full flex items-center justify-center bg-gray-600 text-gray-200"
                       delayMs={600}>
                       {item.role[0]}
                     </Avatar.Fallback>
                   </Avatar.Root>
                 </span>
                 <div className="rounded-lg p-4 shadow-md">
-                  <h3 className="text-lg font-semibold text-white">
+                  <h3 className="text-lg font-semibold text-gray-200">
                     {item.role}
                   </h3>
                   <p className="text-gray-400 text-sm">{item.institution}</p>

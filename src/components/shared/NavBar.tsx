@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import logo from "@/assets/UE.png";
+import logo from "@/assets/logo.png";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -74,12 +74,12 @@ const NavBar = () => {
         {/* Logo */}
         <Link href="/" className="ml-0 md:ml-4 lg:ml-0">
           <div className="text-2xl font-bold text-blue-600">
-            <Image src={logo} alt="Umayer's Image" width={35} />
+            <Image src={logo} alt="Umayer's Image" width={45} />
           </div>
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden lg:flex space-x-4  items-center flex-1 justify-center text-white navLink">
+        <div className="hidden lg:flex space-x-4  items-center flex-1 justify-center text-gray-100 navLink">
           {navList.map((item) => (
             <Link
               href={item?.path}
@@ -89,7 +89,7 @@ const NavBar = () => {
                  ${
                    activeLink === item?.path
                      ? "bg-[#00BFFF] text-[#06002C] border-b border-secondaryColor border-opacity-40 px-4 py-2 rounded-xl text-base"
-                     : "hover:text-[#00BFFF] text-white border-b border-secondaryColor border-opacity-40 px-4 py-2 text-base rounded-xl"
+                     : "hover:text-[#00BFFF] text-gray-100 border-b border-secondaryColor border-opacity-40 px-4 py-2 text-base rounded-xl"
                  }`}>
               {item.label}
             </Link>
@@ -103,7 +103,7 @@ const NavBar = () => {
                  ${
                    activeLink === "/#contact"
                      ? "bg-[#00BFFF] text-[#06002C] border-b border-secondaryColor border-opacity-40 px-4 py-2 rounded-xl text-base"
-                     : "hover:text-[#00BFFF] text-white border-b border-secondaryColor border-opacity-40 px-4 py-2 text-base rounded-xl"
+                     : "hover:text-[#00BFFF] text-gray-100 border-b border-secondaryColor border-opacity-40 px-4 py-2 text-base rounded-xl"
                  }`}>
             Contact Me
           </Link>
@@ -115,9 +115,12 @@ const NavBar = () => {
             className="h-6 w-6 text-inherit hover:bg-transparent mr-2 focus:bg-transparent active:bg-transparent lg:hidden"
             onClick={() => setOpenNav(!openNav)}>
             {openNav ? (
-              <FaXmark className="h-8 w-8 text-white" strokeWidth={2} />
+              <FaXmark className="h-8 w-8 text-gray-100" strokeWidth={2} />
             ) : (
-              <GiHamburgerMenu className="h-8 w-8 text-white" strokeWidth={2} />
+              <GiHamburgerMenu
+                className="h-8 w-8 text-gray-100"
+                strokeWidth={2}
+              />
             )}
           </div>
           <div
@@ -134,7 +137,7 @@ const NavBar = () => {
                 className={
                   activeLink === item?.path
                     ? "bg-[#00BFFF] text-[#06002C] border-b border-secondaryColor border-opacity-40 px-4 py-2 rounded-xl text-base"
-                    : "hover:text-[#00BFFF] text-white border-b border-secondaryColor border-opacity-40 px-4 py-2 text-base rounded-xl"
+                    : "hover:text-[#00BFFF] text-gray-100 border-b border-secondaryColor border-opacity-40 px-4 py-2 text-base rounded-xl"
                 }>
                 {item.label}
               </Link>
@@ -145,7 +148,7 @@ const NavBar = () => {
               className={
                 activeLink === "/#contact"
                   ? "bg-[#00BFFF] text-[#06002C] border-b border-secondaryColor border-opacity-40 px-4 py-2 rounded-xl text-base"
-                  : "hover:text-[#00BFFF] text-white border-b border-secondaryColor border-opacity-40 px-4 py-2 text-base rounded-xl"
+                  : "hover:text-[#00BFFF] text-gray-100 border-b border-secondaryColor border-opacity-40 px-4 py-2 text-base rounded-xl"
               }>
               Contact Me
             </Link>
