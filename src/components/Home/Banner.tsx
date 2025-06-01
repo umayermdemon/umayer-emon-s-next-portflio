@@ -23,7 +23,7 @@ const Banner = () => {
             Passionate about creating interactive and responsive web
             applications using modern technologies.
           </p>
-          <Link href={"/umayer-emon.pdf"} target="_blank" download>
+          <Link href={"/Md-Emon-Miah.pdf"} target="_blank" download>
             <Button
               variant={"outline"}
               className="hover:bg-secondaryColor rounded-xl  hover:text-gray-200 hover:border-secondaryColor font-bold text-secondaryColor">

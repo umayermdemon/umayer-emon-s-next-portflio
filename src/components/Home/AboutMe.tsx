@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import logo from "@/assets/logo.png";
 import Image from "next/image";
 
@@ -8,11 +7,11 @@ const AboutMe = () => {
       <div className="flex justify-center lg:max-w-7xl mx-auto py-12 md:pb-36 px-4">
         <div className="w-full max-w-3xl px-6 py-8 rounded-md shadow-md shadow-secondaryColor bg-opacity-5 space-y-8">
           <p className="text-justify text-gray-200 text-sm sm:text-base leading-relaxed">
-            Hi, I’m Umayer Emon (officially <strong>Md. Emon Miah</strong>), a
-            full stack web developer skilled in React, Next.js, Node.js,
+            Hi, I&apos;m Umayer Emon (officially <strong>Md. Emon Miah</strong>
+            ), a full stack web developer skilled in React, Next.js, Node.js,
             Express.js, MongoDB, PostgreSQL, and Prisma. I build responsive,
-            secure, and scalable web applications, and I’m passionate about
-            creating clean UI and efficient backend systems. I’ve developed
+            secure, and scalable web applications, and I&apos;m passionate about
+            creating clean UI and efficient backend systems. I&apos;ve developed
             real-world projects like e-commerce sites and blogs with full
             authentication.
           </p>

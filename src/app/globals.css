@@ -27,7 +27,8 @@ body {
 #banner,
 #skills,
 #header,
-#blogs {
+#blogs,
+#all-projects {
   background-color: #0f172a;
   background-image: linear-gradient(
       90deg,
