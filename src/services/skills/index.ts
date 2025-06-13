@@ -2,7 +2,7 @@
 
 export const getAllSkills = async () => {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/skills`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/skills/user`, {
       next: { revalidate: 60 },
     });
 

@@ -1,7 +1,13 @@
 import logo from "@/assets/logo.png";
 import Image from "next/image";
 
-const AboutMe = () => {
+function getExperienceYears() {
+  const startYear = 2024;
+  const currentYear = new Date().getFullYear();
+  return currentYear - startYear;
+}
+
+const AboutMe = ({ project }: { project: number }) => {
   return (
     <div className="bg-backgroundColor pt-8" id="about">
       <div className="flex justify-center lg:max-w-7xl mx-auto py-12 md:pb-36 px-4">
@@ -23,13 +29,17 @@ const AboutMe = () => {
 
             <div className="flex justify-around gap-8 flex-1 text-center sm:text-left ml-0 sm:ml-12">
               <div>
-                <h1 className="text-3xl font-bold text-secondaryColor">5+</h1>
+                <h1 className="text-3xl font-bold text-secondaryColor">
+                  {project}+
+                </h1>
                 <p className="font-light text-sm text-gray-400">
                   Projects Done
                 </p>
               </div>
               <div>
-                <h1 className="text-3xl font-bold text-secondaryColor">1+</h1>
+                <h1 className="text-3xl font-bold text-secondaryColor">
+                  {getExperienceYears()}+
+                </h1>
                 <p className="font-light text-sm text-gray-400">
                   Years of Experience
                 </p>

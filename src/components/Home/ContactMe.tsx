@@ -51,8 +51,8 @@ const ContactPage = () => {
     const name = e.target.user_name.value;
     const email = e.target.user_email.value;
     const message = e.target.message.value;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const messageData = { name, email, message };
-    console.log(messageData);
     e.target.reset();
   };
   return (

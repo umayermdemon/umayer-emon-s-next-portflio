@@ -17,7 +17,7 @@ const Home = async () => {
       <div id="banner">
         <Banner />
       </div>
-      <AboutMe />
+      <AboutMe project={projectsData?.length} />
       <Skills skills={skillsData} />
       <FeaturedProjects projects={projectsData} />
       <Educations />
