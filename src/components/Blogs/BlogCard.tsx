@@ -1,7 +1,7 @@
-import { Blog } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 import BlogsCategory from "./BlogsCategory";
+import { TBlog } from "@/types";
 
 const extractImageLinks = (html: string): string[] => {
   const imgTagRegex = /<img[^>]+src="([^">]+)"/g;
@@ -17,7 +17,7 @@ const stripHtml = (html: string): string => {
   return html.replace(/<[^>]+>/g, "");
 };
 
-const BlogCard = ({ blog }: { blog: Blog }) => {
+const BlogCard = ({ blog }: { blog: TBlog }) => {
   const imageLinks = extractImageLinks(blog.content);
   const firstImage = imageLinks[0];
 
@@ -26,10 +26,13 @@ const BlogCard = ({ blog }: { blog: Blog }) => {
       <div className="relative overflow-hidden">
         <Link href={`/blogs/${blog?._id}`}>
           <Image
-            src={firstImage}
+            src={
+              firstImage ||
+              "https://res.cloudinary.com/duagqnvpw/image/upload/v1749990732/blog-image_musife.jpg"
+            }
             height={500}
             width={500}
-           className="w-full h-56 object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
+            className="w-full h-56 object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
             alt={blog?.title}
           />
         </Link>
@@ -39,7 +42,9 @@ const BlogCard = ({ blog }: { blog: Blog }) => {
           <BlogsCategory category={blog?.category} />
         </div>
         <div className="mb-2 flex items-center justify-between">
-          <Link href={`blogs/${blog?._id}`} className="font-bold text-lg sm:text-xl text-black font-poppins line-clamp-2">
+          <Link
+            href={`blogs/${blog?._id}`}
+            className="font-bold text-lg sm:text-xl text-black font-poppins line-clamp-2">
             {blog.title}
           </Link>
         </div>

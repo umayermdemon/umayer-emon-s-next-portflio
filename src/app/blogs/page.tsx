@@ -1,6 +1,6 @@
 import { getBlogs } from "@/services/blogs";
 import BlogCard from "@/components/Blogs/BlogCard";
-import { Blog } from "@/types";
+import { TBlog } from "@/types";
 
 const BlogPage = async () => {
   const { data } = await getBlogs();
@@ -12,7 +12,7 @@ const BlogPage = async () => {
         </h1>
       </div>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-2 lg:mx-auto py-12">
-        {data?.map((blog: Blog, index: number) => (
+        {data?.map((blog: TBlog, index: number) => (
           <BlogCard key={index} blog={blog} />
         ))}
       </div>
