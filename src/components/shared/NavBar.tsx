@@ -11,28 +11,28 @@ import { FaXmark } from "react-icons/fa6";
 
 const navList = [
   {
-    path: "/#home",
+    path: "/",
     label: "Home",
   },
   {
-    path: "/#about",
+    path: "#about",
     label: "About",
   },
   {
-    path: "/#skills",
+    path: "#skills",
     label: "Skills",
   },
   {
-    path: "/#projects",
+    path: "#projects",
     label: "Projects",
   },
   {
-    path: "/#education",
-    label: "Educations",
+    path: "#blogs",
+    label: "Blogs",
   },
   {
-    path: "/blogs",
-    label: "Blogs",
+    path: "#education",
+    label: "Educations",
   },
 ];
 
@@ -69,7 +69,7 @@ const NavBar = () => {
     };
   }, [openNav]);
   return (
-    <nav className="fixed z-50 px-4 pt-2 md:pt-0 pb-2 w-screen mx-auto shadow-none rounded-none ">
+    <nav className="fixed z-50 px-4 pt-2 md:pt-0 pb-2 w-screen mx-auto shadow-none rounded-none">
       <div className="max-w-7xl mx-auto flex justify-between items-center py-4">
         {/* Logo */}
         <Link href="/" className="ml-0 md:ml-4 lg:ml-0">

@@ -26,9 +26,10 @@ body {
 #navList,
 #banner,
 #skills,
-#header,
 #blogs,
-#all-projects {
+#all-projects,
+#contact,
+#header {
   background-color: #0f172a;
   background-image: linear-gradient(
       90deg,

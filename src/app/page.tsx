@@ -2,8 +2,10 @@ import AboutMe from "@/components/Home/AboutMe";
 import Banner from "@/components/Home/Banner";
 import ContactPage from "@/components/Home/ContactMe";
 import Educations from "@/components/Home/Educations";
+import FeaturedBlogs from "@/components/Home/FeaturedBlogs";
 import FeaturedProjects from "@/components/Home/FeaturedProjects";
 import Skills from "@/components/Home/Skills";
+import { getBlogs } from "@/services/blogs";
 import { getFeaturedProjects } from "@/services/project";
 import { getAllSkills } from "@/services/skills";
 
@@ -12,14 +14,14 @@ const Home = async () => {
   const skillsData = skills?.data;
   const projects = await getFeaturedProjects();
   const projectsData = projects?.data;
+  const { data } = await getBlogs();
   return (
     <div>
-      <div id="banner">
-        <Banner />
-      </div>
+      <Banner />
       <AboutMe project={projectsData?.length} />
       <Skills skills={skillsData} />
       <FeaturedProjects projects={projectsData} />
+      <FeaturedBlogs blogs={data} />
       <Educations />
       <ContactPage />
     </div>
