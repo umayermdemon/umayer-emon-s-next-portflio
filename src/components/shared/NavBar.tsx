@@ -11,7 +11,7 @@ import { FaXmark } from "react-icons/fa6";
 
 const navList = [
   {
-    path: "/",
+    path: "#home",
     label: "Home",
   },
   {
@@ -42,6 +42,35 @@ const NavBar = () => {
   const menuRef = useRef<HTMLDivElement>(null);
   const handleWindowResize = () =>
     window.innerWidth >= 960 && setOpenNav(false);
+
+  // scroll event to highlight active link
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 120;
+      let currentSection = "#home";
+      navList.forEach((item) => {
+        const section = document.querySelector(item.path);
+        if (section) {
+          const sectionTop = (section as HTMLElement).offsetTop;
+          if (scrollPosition >= sectionTop) {
+            currentSection = item.path;
+          }
+        }
+      });
+      // contact section
+      const contactSection = document.querySelector("#contact");
+      if (contactSection) {
+        const contactTop = (contactSection as HTMLElement).offsetTop;
+        if (scrollPosition >= contactTop) {
+          currentSection = "/#contact";
+        }
+      }
+      setActiveLink(currentSection);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   React.useEffect(() => {
     window.addEventListener("resize", handleWindowResize);
@@ -84,7 +113,18 @@ const NavBar = () => {
             <Link
               href={item?.path}
               key={item?.path}
-              onClick={() => setActiveLink(item.path)}
+              onClick={(e) => {
+                e.preventDefault();
+                setActiveLink(item.path);
+                if (item.path === "#home") {
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                } else {
+                  const section = document.querySelector(item.path);
+                  if (section) {
+                    section.scrollIntoView({ behavior: "smooth" });
+                  }
+                }
+              }}
               className={`flex items-center text-base font-medium transition-colors
                  ${
                    activeLink === item?.path
@@ -98,7 +138,12 @@ const NavBar = () => {
         <div className="hidden lg:block">
           <Link
             href={"/#contact"}
-            onClick={() => setActiveLink("/#contact")}
+            onClick={(e) => {
+              e.preventDefault();
+              setActiveLink("/#contact");
+              const section = document.querySelector("#contact");
+              if (section) section.scrollIntoView({ behavior: "smooth" });
+            }}
             className={`flex items-center text-base font-medium transition-colors
                  ${
                    activeLink === "/#contact"

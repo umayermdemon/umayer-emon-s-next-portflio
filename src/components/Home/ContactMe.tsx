@@ -57,7 +57,7 @@ const ContactPage = () => {
   };
   return (
     <div className="bg-backgroundColor" id="contact">
-      <div className="max-w-7xl mx-auto py-10">
+      <div className="max-w-7xl mx-auto py-16">
         {/* Title */}
         <div className="flex justify-center">
           <h1 className="text-2xl lg:text-3xl text-gray-200 gradient px-8 rounded-sm py-2 font-semibold">
