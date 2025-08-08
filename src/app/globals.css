@@ -23,6 +23,11 @@ body {
   display: block;
 }
 
+/* Add to your global CSS if needed */
+.scroll-to-top svg {
+  transform: rotate(-90deg);
+}
+
 #navList,
 #banner,
 #skills,

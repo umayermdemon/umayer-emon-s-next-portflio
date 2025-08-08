@@ -86,7 +86,7 @@ const NavBar = () => {
   }, [openNav]);
 
   // Handler for nav item click (desktop & mobile)
-  const handleNavClick = (e: React.MouseEvent, path: string) => {
+  const handleNavClick = async (e: React.MouseEvent, path: string) => {
     e.preventDefault();
     setActiveLink(path);
     if (window.location.pathname === "/") {
@@ -97,7 +97,10 @@ const NavBar = () => {
         if (section) section.scrollIntoView({ behavior: "smooth" });
       }
     } else {
-      router.push("/");
+      if (path !== "#home") {
+        sessionStorage.setItem("scrollToSection", path);
+      }
+      await router.push("/");
     }
   };
 
@@ -109,6 +112,7 @@ const NavBar = () => {
       const section = document.querySelector("#contact");
       if (section) section.scrollIntoView({ behavior: "smooth" });
     } else {
+      sessionStorage.setItem("scrollToSection", "#contact");
       router.push("/");
     }
   };

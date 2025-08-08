@@ -22,7 +22,7 @@ const BlogCard = ({ blog }: { blog: TBlog }) => {
   const firstImage = imageLinks[0];
 
   return (
-    <div className="bg-gray-100 rounded-xl flex flex-col pb-2 h-[480px] sm:h-[540px] md:h-[580px] shadow-lg hover:shadow-xl transition-shadow duration-200 overflow-hidden group">
+    <div className="bg-backgroundColor rounded-xl flex flex-col pb-2 h-[480px] sm:h-[540px] md:h-[580px] shadow-lg hover:shadow-xl transition-shadow duration-200 overflow-hidden group border border-secondaryColor">
       <div className="relative overflow-hidden">
         <Link href={`/blogs/${blog?._id}`}>
           <Image
@@ -44,7 +44,7 @@ const BlogCard = ({ blog }: { blog: TBlog }) => {
         <div className="mb-2 flex items-center justify-between">
           <Link
             href={`blogs/${blog?._id}`}
-            className="font-bold text-lg sm:text-xl text-black font-poppins line-clamp-2">
+            className="font-bold text-lg sm:text-xl text-white/70 font-poppins line-clamp-2">
             {blog.title}
           </Link>
         </div>
@@ -60,7 +60,7 @@ const BlogCard = ({ blog }: { blog: TBlog }) => {
           </h2>
         </div>
         <div
-          className="font-poppins mb-2 text-xs sm:text-sm text-gray-700 line-clamp-4"
+          className="font-poppins mb-2 text-xs sm:text-sm text-white/70 line-clamp-4"
           dangerouslySetInnerHTML={{
             __html: stripHtml(blog.content).slice(0, 250) + ".....",
           }}

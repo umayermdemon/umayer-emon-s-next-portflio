@@ -5,6 +5,7 @@ import Educations from "@/components/Home/Educations";
 import FeaturedBlogs from "@/components/Home/FeaturedBlogs";
 import FeaturedProjects from "@/components/Home/FeaturedProjects";
 import Skills from "@/components/Home/Skills";
+import ScrollToSectionClient from "@/components/shared/ScrollToSectionClient";
 import { getBlogs } from "@/services/blogs";
 import { getFeaturedProjects } from "@/services/project";
 import { getAllSkills } from "@/services/skills";
@@ -17,6 +18,7 @@ const Home = async () => {
   const { data } = await getBlogs();
   return (
     <div>
+      <ScrollToSectionClient />
       <Banner />
       <AboutMe project={projectsData?.length} />
       <Skills skills={skillsData} />
