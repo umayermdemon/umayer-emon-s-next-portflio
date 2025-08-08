@@ -1,50 +1,39 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import logo from "@/assets/logo.png";
-
 import Image from "next/image";
 import Link from "next/link";
-
+import { usePathname, useRouter } from "next/navigation";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaXmark } from "react-icons/fa6";
+import logo from "@/assets/logo.png";
 
 const navList = [
-  {
-    path: "#home",
-    label: "Home",
-  },
-  {
-    path: "#about",
-    label: "About",
-  },
-  {
-    path: "#skills",
-    label: "Skills",
-  },
-  {
-    path: "#projects",
-    label: "Projects",
-  },
-  {
-    path: "#blogs",
-    label: "Blogs",
-  },
-  {
-    path: "#education",
-    label: "Educations",
-  },
+  { path: "#home", label: "Home" },
+  { path: "#about", label: "About" },
+  { path: "#skills", label: "Skills" },
+  { path: "#projects", label: "Projects" },
+  { path: "#blogs", label: "Blogs" },
+  { path: "#education", label: "Educations" },
 ];
 
 const NavBar = () => {
   const [activeLink, setActiveLink] = useState("#home");
-  const [openNav, setOpenNav] = React.useState(false);
+  const [openNav, setOpenNav] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
-  const handleWindowResize = () =>
-    window.innerWidth >= 960 && setOpenNav(false);
+  const pathname = usePathname();
+  const router = useRouter();
 
-  // scroll event to highlight active link
+  // Highlight nav item based on route or scroll
   useEffect(() => {
+    if (pathname.startsWith("/blogs")) {
+      setActiveLink("#blogs");
+      return;
+    }
+    if (pathname.startsWith("/projects")) {
+      setActiveLink("#projects");
+      return;
+    }
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 120;
       let currentSection = "#home";
@@ -57,7 +46,6 @@ const NavBar = () => {
           }
         }
       });
-      // contact section
       const contactSection = document.querySelector("#contact");
       if (contactSection) {
         const contactTop = (contactSection as HTMLElement).offsetTop;
@@ -67,36 +55,64 @@ const NavBar = () => {
       }
       setActiveLink(currentSection);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [pathname]);
 
-  React.useEffect(() => {
-    window.addEventListener("resize", handleWindowResize);
-
-    return () => {
-      window.removeEventListener("resize", handleWindowResize);
+  // Handle window resize for mobile nav
+  useEffect(() => {
+    const handleWindowResize = () => {
+      if (window.innerWidth >= 960) setOpenNav(false);
     };
+    window.addEventListener("resize", handleWindowResize);
+    return () => window.removeEventListener("resize", handleWindowResize);
   }, []);
 
+  // Close mobile nav on outside click
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
         setOpenNav(false);
       }
     };
-
     if (openNav) {
       document.addEventListener("mousedown", handleClickOutside);
     } else {
       document.removeEventListener("mousedown", handleClickOutside);
     }
-
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [openNav]);
+
+  // Handler for nav item click (desktop & mobile)
+  const handleNavClick = (e: React.MouseEvent, path: string) => {
+    e.preventDefault();
+    setActiveLink(path);
+    if (window.location.pathname === "/") {
+      if (path === "#home") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        const section = document.querySelector(path);
+        if (section) section.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      router.push("/");
+    }
+  };
+
+  // Handler for contact click (desktop & mobile)
+  const handleContactClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setActiveLink("/#contact");
+    if (window.location.pathname === "/") {
+      const section = document.querySelector("#contact");
+      if (section) section.scrollIntoView({ behavior: "smooth" });
+    } else {
+      router.push("/");
+    }
+  };
+
   return (
     <nav className="fixed z-50 px-4 pt-2 md:pt-0 pb-2 w-screen mx-auto shadow-none rounded-none">
       <div className="max-w-7xl mx-auto flex justify-between items-center py-4">
@@ -108,48 +124,32 @@ const NavBar = () => {
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden lg:flex space-x-4  items-center flex-1 justify-center text-gray-100 navLink">
+        <div className="hidden lg:flex space-x-4 items-center flex-1 justify-center text-gray-100 navLink">
           {navList.map((item) => (
             <Link
-              href={item?.path}
-              key={item?.path}
-              onClick={(e) => {
-                e.preventDefault();
-                setActiveLink(item.path);
-                if (item.path === "#home") {
-                  window.scrollTo({ top: 0, behavior: "smooth" });
-                } else {
-                  const section = document.querySelector(item.path);
-                  if (section) {
-                    section.scrollIntoView({ behavior: "smooth" });
-                  }
-                }
-              }}
+              href="/"
+              key={item.path}
+              onClick={(e) => handleNavClick(e, item.path)}
               className={`flex items-center text-base font-medium transition-colors
-                 ${
-                   activeLink === item?.path
-                     ? "bg-[#00BFFF] text-[#06002C] border-b border-secondaryColor border-opacity-40 px-4 py-2 rounded-xl text-base"
-                     : "hover:text-[#00BFFF] text-gray-100 border-b border-secondaryColor border-opacity-40 px-4 py-2 text-base rounded-xl"
-                 }`}>
+                ${
+                  activeLink === item.path
+                    ? "bg-[#00BFFF] text-[#06002C] border-b border-secondaryColor border-opacity-40 px-4 py-2 rounded-xl text-base"
+                    : "hover:text-[#00BFFF] text-gray-100 border-b border-secondaryColor border-opacity-40 px-4 py-2 text-base rounded-xl"
+                }`}>
               {item.label}
             </Link>
           ))}
         </div>
         <div className="hidden lg:block">
           <Link
-            href={"/#contact"}
-            onClick={(e) => {
-              e.preventDefault();
-              setActiveLink("/#contact");
-              const section = document.querySelector("#contact");
-              if (section) section.scrollIntoView({ behavior: "smooth" });
-            }}
+            href="/"
+            onClick={handleContactClick}
             className={`flex items-center text-base font-medium transition-colors
-                 ${
-                   activeLink === "/#contact"
-                     ? "bg-[#00BFFF] text-[#06002C] border-b border-secondaryColor border-opacity-40 px-4 py-2 rounded-xl text-base"
-                     : "hover:text-[#00BFFF] text-gray-100 border-b border-secondaryColor border-opacity-40 px-4 py-2 text-base rounded-xl"
-                 }`}>
+              ${
+                activeLink === "/#contact"
+                  ? "bg-[#00BFFF] text-[#06002C] border-b border-secondaryColor border-opacity-40 px-4 py-2 rounded-xl text-base"
+                  : "hover:text-[#00BFFF] text-gray-100 border-b border-secondaryColor border-opacity-40 px-4 py-2 text-base rounded-xl"
+              }`}>
             Contact Me
           </Link>
         </div>
@@ -176,11 +176,14 @@ const NavBar = () => {
             }`}>
             {navList.map((item) => (
               <Link
-                href={item?.path}
-                key={item?.path}
-                onClick={() => setActiveLink(item.path)}
+                href="/"
+                key={item.path}
+                onClick={(e) => {
+                  handleNavClick(e, item.path);
+                  // setOpenNav(false);
+                }}
                 className={
-                  activeLink === item?.path
+                  activeLink === item.path
                     ? "bg-[#00BFFF] text-[#06002C] border-b border-secondaryColor border-opacity-40 px-4 py-2 rounded-xl text-base"
                     : "hover:text-[#00BFFF] text-gray-100 border-b border-secondaryColor border-opacity-40 px-4 py-2 text-base rounded-xl"
                 }>
@@ -188,8 +191,11 @@ const NavBar = () => {
               </Link>
             ))}
             <Link
-              href="/#contact"
-              onClick={() => setActiveLink("/#contact")}
+              href="/"
+              onClick={(e) => {
+                handleContactClick(e);
+                // setOpenNav(false);
+              }}
               className={
                 activeLink === "/#contact"
                   ? "bg-[#00BFFF] text-[#06002C] border-b border-secondaryColor border-opacity-40 px-4 py-2 rounded-xl text-base"
