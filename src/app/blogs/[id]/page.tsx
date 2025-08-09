@@ -4,7 +4,7 @@ import BlogDetailsCard from "@/components/Blogs/BlogDetailsCard";
 import { Button } from "@/components/ui/button";
 import { TBlog } from "@/types";
 import { Input } from "@/components/ui/input";
-import { CATEGORY_LABEL_ARRAY } from "@/types/category.types";
+import Categories from "@/components/Blogs/Categories";
 
 const BlogDetailsPage = async ({
   params,
@@ -15,6 +15,7 @@ const BlogDetailsPage = async ({
   const { data } = await getBlogs();
   const blog = data.find((blog: TBlog) => blog?._id === id);
   const recentBlogs = data.slice(0, 5);
+
   if (!blog) {
     notFound();
   }
@@ -27,7 +28,7 @@ const BlogDetailsPage = async ({
       <div className="w-1/3 space-y-8">
         {/* Search Bar */}
         <div className="bg-backgroundColor p-6 rounded-xl border border-secondaryColor space-y-4">
-          <h1 className="font-bold text-xl">Search Anything</h1>
+          <h1 className="font-bold text-xl text-white/80">Search Anything</h1>
           <div className="flex flex-row items-center gap-2">
             <Input />
             <Button className="bg-secondaryColor text-white hover:bg-secondaryColorHover">
@@ -37,7 +38,7 @@ const BlogDetailsPage = async ({
         </div>
         {/* Recent Blogs */}
         <div className="bg-backgroundColor p-6 rounded-xl border border-secondaryColor space-y-4">
-          <h1 className="font-bold text-xl">Recent Blogs</h1>
+          <h1 className="font-bold text-xl text-white/80">Recent Blogs</h1>
           <div className="flex flex-col items-start">
             {recentBlogs.map((blog: TBlog, index: number) => (
               <div key={index} className="w-full mb-2">
@@ -50,18 +51,7 @@ const BlogDetailsPage = async ({
         </div>
 
         {/* Categories */}
-        <div className="bg-backgroundColor p-6 rounded-xl border border-secondaryColor space-y-4">
-          <h1 className="font-bold text-xl">Categories</h1>
-          <div className="flex flex-col items-start">
-            {CATEGORY_LABEL_ARRAY.map((category) => (
-              <Button
-                key={category}
-                className="text-secondaryColor hover:text-white text-base">
-                {category}
-              </Button>
-            ))}
-          </div>
-        </div>
+        <Categories />
       </div>
     </div>
   );

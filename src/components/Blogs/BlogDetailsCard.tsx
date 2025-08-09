@@ -7,7 +7,7 @@ const BlogDetailsCard = ({ blog }: { blog: TBlog }) => {
     <div className="p-8 border border-secondaryColor bg-backgroundColor rounded-xl">
       <div className="space-y-8">
         <div className="space-y-2">
-          <h1 className="text-xl font-bold">{title}</h1>
+          <h1 className="text-xl font-bold text-white/80">{title}</h1>
           <div className="flex items-center justify-between">
             <div className="mb-4 flex flex-row items-center text-secondaryColor text-xs sm:text-sm">
               <h2 className="font-poppins">By {author}</h2>
@@ -26,7 +26,7 @@ const BlogDetailsCard = ({ blog }: { blog: TBlog }) => {
           </div>
         </div>
         <div
-          className="text-justify"
+          className="text-justify text-white/80"
           dangerouslySetInnerHTML={{
             __html: content,
           }}></div>

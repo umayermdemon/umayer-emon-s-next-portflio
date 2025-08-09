@@ -11,4 +11,7 @@ export const CATEGORY_LABELS: Record<string, string> = {
   other: "Other",
 };
 
-export const CATEGORY_LABEL_ARRAY = Object.values(CATEGORY_LABELS);
+export const CATEGORY_OPTIONS = Object.keys(CATEGORY_LABELS).map((key) => ({
+  value: key,
+  label: CATEGORY_LABELS[key],
+}));

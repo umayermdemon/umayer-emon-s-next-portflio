@@ -44,7 +44,7 @@ const BlogCard = ({ blog }: { blog: TBlog }) => {
         <div className="mb-2 flex items-center justify-between">
           <Link
             href={`blogs/${blog?._id}`}
-            className="font-bold text-lg sm:text-xl text-white/70 font-poppins line-clamp-2">
+            className="font-bold text-lg sm:text-xl text-white/70 hover:text-white font-poppins line-clamp-2">
             {blog.title}
           </Link>
         </div>
